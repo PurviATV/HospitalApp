@@ -6,21 +6,24 @@ import java.util.List;
 public class Hospital {
 
     private List<Patient> patientList;
-    public static final String location = "Bangalore";
+    private String location;
 
-    public Hospital()
-    {
-        patientList=new ArrayList<>();
+    public Hospital(String location) {
+        patientList = new ArrayList<>();
+        this.location=location;
     }
 
     public List<Patient> addPatient(Patient... patient) {
         patientList.addAll(Arrays.asList(patient));
         return patientList;
     }
-
-    public long getTotalPatientsCount()
+    public String getHospitalLocation()
     {
-        return patientList.size();
+        return this.location;
+    }
+
+    public long getTotalPatientsCount(LocalDate startDate, LocalDate endDate) {
+        return patientList.stream().filter(patient -> patient.isPatientVisitInDateRange(startDate, endDate)).count();
     }
 
 
@@ -29,10 +32,10 @@ public class Hospital {
 
     }
 
-    public long getOutStationPatientCount(LocalDate startDate, LocalDate endDate)
-    {
-        return patientList.size()-getBangalorePatientsCount(startDate,endDate);
+    public long getOutStationPatientCount(LocalDate startDate, LocalDate endDate) {
+        return patientList.size() - getBangalorePatientsCount(startDate, endDate);
     }
+
 
 
 
