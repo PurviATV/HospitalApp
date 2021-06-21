@@ -20,7 +20,7 @@ public class Patient {
         return this.location;
     }
 
-    public boolean isPatientVisitInDateRange(LocalDate startDate, LocalDate lastDate) {
+    public boolean isPatientIsInDateRange(LocalDate startDate, LocalDate lastDate) {
         if (dateOfRegistration.isAfter(startDate) && dateOfRegistration.isBefore(lastDate))
             return true;
         else
