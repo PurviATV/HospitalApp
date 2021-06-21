@@ -38,7 +38,7 @@ public class Main {
                     String fromDate = input.next();
                     System.out.println("Enter End Date in yyyy-mm-dd format");
                     String toDate = input.next();
-                    long localPatientsCount = h1.getBangalorePatientsCount(LocalDate.parse(fromDate), LocalDate.parse(toDate));
+                    long localPatientsCount = h1.getLocalPatientsCount(LocalDate.parse(fromDate), LocalDate.parse(toDate));
                     System.out.println(localPatientsCount+"  "+h1.getTotalPatientsCount(LocalDate.parse(fromDate), LocalDate.parse(toDate)));
                     double localPer = localPatientsCount * 100 / h1.getTotalPatientsCount(LocalDate.parse(fromDate), LocalDate.parse(toDate));
                     System.out.println("Local Patients Percentage: " + localPer);

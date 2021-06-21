@@ -27,13 +27,13 @@ public class Hospital {
     }
 
 
-    public long getBangalorePatientsCount(LocalDate startDate, LocalDate endDate) {
+    public long getLocalPatientsCount(LocalDate startDate, LocalDate endDate) {
         return patientList.stream().filter(patient -> patient.getLocationOfPatient().equals(location) && patient.isPatientVisitInDateRange(startDate, endDate)).count();
 
     }
 
     public long getOutStationPatientCount(LocalDate startDate, LocalDate endDate) {
-        return patientList.size() - getBangalorePatientsCount(startDate, endDate);
+        return getTotalPatientsCount(startDate, endDate) - getLocalPatientsCount(startDate, endDate);
     }
 
 

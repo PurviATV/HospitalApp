@@ -46,7 +46,7 @@ public class HospitalTest {
 
     @Test
     public void Test003_Verify_Count_Of_Local_Patients() {
-        localPatients = hospital.getBangalorePatientsCount(LocalDate.parse("2021-06-17"), LocalDate.parse("2021-06-21"));
+        localPatients = hospital.getLocalPatientsCount(LocalDate.parse("2021-06-17"), LocalDate.parse("2021-06-21"));
         Assert.assertEquals(localPatients, 4);
         Reporter.log("4 local patients are admitted to hospital",true);
     }
