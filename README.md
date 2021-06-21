@@ -7,3 +7,19 @@ Expectations:
 Build the solution with OOP concepts
 Find out the relation between the Hospital, Patient
 Use viable data structures to handle at least 1000 patients per hospital
+
+## Technology Used:
+* Language: JAVA
+* Build Tool: Gradle
+* Testing framework: TestNG
+
+## System Requirements:
+* JDK 1.8 or above
+* Gradle
+* IDE of choice(Optional)
+
+## Test Execution:
+The test suites is configured in ./src/test/resources/testng.xml
+
+## App Execution
+The main is configured in ./src/main/java/Main.java
