@@ -1,16 +1,25 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Patient {
 
     private String fullName;
     private String location;
-    private LocalDate dateOfRegistration;
+    private List<VisitDate> dateOfVisits;
 
-    public Patient(String fullName, String location, LocalDate dateOfRegistration) {
+    public Patient(String fullName, String location) {
         this.fullName = fullName;
         this.location = location;
-        this.dateOfRegistration = dateOfRegistration;
+        dateOfVisits=new ArrayList<>();
     }
+    public void addVisits(VisitDate... visit)
+    {
+        dateOfVisits.addAll(Arrays.asList(visit));
+    }
+
 
     public String getPatientName() {
         return this.fullName;
@@ -20,12 +29,18 @@ public class Patient {
         return this.location;
     }
 
-    public boolean isPatientIsInDateRange(LocalDate startDate, LocalDate lastDate) {
-        if (dateOfRegistration.isAfter(startDate) && dateOfRegistration.isBefore(lastDate))
+    private List<LocalDate> getDateOfVisits() {
+        return dateOfVisits.stream().map(visitDate -> visitDate.getDate()).collect(Collectors.toList());
+    }
+
+    public boolean isPatientVisitsInDateRange(LocalDate startDate, LocalDate endDate){
+        if(getDateOfVisits().stream().filter(visitDate ->
+                visitDate.isAfter(startDate)&& visitDate.isBefore(endDate)).count()>0)
             return true;
         else
             return false;
     }
+
 
 
 }
